@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width='500' height="500" style="background:#000">
+        <p>you browser not support canvas!<p>
+    </canvas>
+    <!-- <script src='../js/utils.js'></script> -->
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                //将canvas传入，该方法会返回一个包含属性x和y的对象
+                mouse = utils.captureMouse(canvas);
+
+            //为canvas绑定mousedown事件，当鼠标按下的时候打印出当前鼠标相对于canvas的坐标值
+            canvas.addEventListener('mousedown', function (event) {
+                console.log(mouse)
+            });
+        }
+    </script>
+
+    <script>
+
+        window.utils = {};
+
+        window.utils.captureMouse = function (element) {
+            var mouse = { x: 0, y: 0 };
+
+            element.addEventListener('mousemove', function (event) {
+                var x, y;
+
+                if (event.pageX || event.pageY) {
+                    x = event.pageX;
+                    y = event.pageY;
+                } else {
+                    x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                    y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+                }
+                //将当前的坐标值减去元素的偏移位置，即为鼠标位于当前canvas的位置
+                x -= element.offsetLeft;
+                y -= element.offsetTop;
+
+                mouse.x = x;
+                mouse.y = y;
+            }, false);
+
+            return mouse;
+        }
+    </script>
+</body>
+
+</html>

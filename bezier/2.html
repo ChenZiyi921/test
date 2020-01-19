@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .1);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        // sx, sy, cx, cy, ex, ey
+        var cvs = document.getElementById('canvas');
+        var ctx = cvs.getContext('2d');
+        var clientWidth = document.documentElement.clientWidth;
+        var clientHeight = document.documentElement.clientHeight;
+        var dpr = window.devicePixelRatio;
+        var tf = val => { return ~~((val / 750) * clientWidth * dpr) };
+        cvs.width = tf(clientWidth);
+        cvs.height = tf(clientHeight);
+        function Bezier(sx, sy, cx, cy, ex, ey, part) {
+            function dots(x, y) {
+                ctx.beginPath();
+                ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                ctx.fillStyle = "#0099ff";
+                ctx.fill();
+            }
+            dots(sx, sy);
+            dots(cx, cy);
+            dots(ex, ey);
+
+            ctx.beginPath();
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(cx, cy);
+            ctx.lineTo(ex, ey);
+            ctx.stroke();
+
+            var changeX1 = (cx - sx) / part;
+            var changeY1 = (cy - sy) / part; // D点坐标
+
+            var changeX2 = (ex - cx) / part;
+            var changeY2 = (ey - cy) / part; // E点坐标
+
+            var lastX = sx;
+            var lastY = sy; // 起始坐标
+            var i = 0;      // 起始步数
+
+            console.log(changeX1)
+            console.log(changeY1) // D点每步移动距离
+            console.log(changeX2)
+            console.log(changeY2) // E点每步移动距离
+
+            return function () {
+                var ox1 = sx + changeX1 * i;
+                var oy1 = sy + changeY1 * i;
+                var ox2 = cx + changeX2 * i;
+                var oy2 = cy + changeY2 * i; // D、E点每移动一步后的坐标
+
+                // console.log(ox1)
+                // console.log(oy1)
+                // console.log(ox2)
+                // console.log(oy2)
+
+                var bx = ox1 + (ox2 - ox1) * i / part;
+                var by = oy1 + (oy2 - oy1) * i / part; // F点移动坐标
+
+                
+                console.log((ox2 - ox1) * i / part)
+                // console.log(bx)
+                // console.log(by)
+
+                // ctx.clearRect(0, 0, clientWidth, clientHeight);
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(bx, by);
+                ctx.stroke();
+
+                lastX = bx;
+                lastY = by;
+
+                i += 5;
+                if (i <= part) {
+                    window.requestAnimationFrame(arguments.callee)
+                }
+            }
+        }
+        var sx = tf(clientWidth / 2);
+        var sy = tf(clientHeight / 4);
+        var cx = tf(clientWidth / 10);
+        var cy = tf(clientHeight / 2);
+        var ex = cx;
+        var ey = tf(clientHeight - 40);
+
+        // console.log(sx, sy, cx, cy, ex, ey);
+        Bezier(sx, sy, cx, cy, ex, ey, 200)();
+    </script>
+</body>
+
+</html>

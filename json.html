@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>json-query</title>
+    <script type="text/javascript">
+
+
+
+        let findKey = (obj, key) => {
+            if (typeof obj !== 'object') {
+                return
+            }
+            let ret
+            Object.keys(obj).forEach(_key => {
+                if (key === _key) {
+                    ret = obj
+                } else {
+                    ret = ret || findKey(obj[_key], key)
+                }
+            })
+            return ret
+        }
+        let findKey = (obj, key) => {
+            let queue = Object.keys(obj).map(k => ({ item: obj[k], parent: obj, key: k }))
+            while (queue.length > 0) {
+                let top = queue.shift()
+                if (top.key === key) {
+                    return top.parent
+                }
+                if (typeof top.item === 'object') {
+                    queue.push(...Object.keys(top.item).map(k => ({ item: top.item[k], parent: top.item, key: k })))
+                }
+            }
+        }
+        let findKey = (obj, key) => {
+            let ret, arr = []
+            Object.keys(obj).forEach(_key => {
+                if (key === _key) {
+                    ret = obj[key]
+                    let getKey = () => {
+                        if (!ret) {
+                            arr.push(obj.id)
+                        } else {
+                            ret.forEach(item => {
+                                ret = item[key]
+                                if (!!ret) {
+                                    getKey()
+                                } else {
+                                    arr.push(item.id)
+                                }
+                            })
+                        }
+                    }
+                    getKey()
+                }
+            })
+            return arr
+        }
+        const recursion = {
+            convertTreeCheck: function (tree, checkVal) {
+                const result = [];
+                tree.forEach((item) => {
+                    let checked = checkVal;
+                    let children = item.children;
+                    if (Array.isArray(children)) {
+                        children = this.convertTreeCheck(children, checkVal);
+                    }
+                    result.push({ checked, children });
+                })
+                return result
+            }
+        }
+        json = recursion.convertTreeCheck(json, true)
+
+
+        // 3
+        let Person = () => {
+            return {
+                eat(text) {
+                    console.log(`Eat ${text}`)
+                    return this
+                }
+            }
+        }
+        // Person("Li").sleep(10);
+        // Person("Li").eat('dinner');
+        // Person("Li").eat('dinner').eat('dinner');
+        // Person("Li").sleep(10).eat('dinner'); 
+        Person().eat('dinner').eat('dr');
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        [
+            "transform-jsx",
+            {
+                "function": "createElement"
+            }
+        ]
+    ]
+}

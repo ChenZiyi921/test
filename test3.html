@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <canvas id="canvas" style="display:block;border:1px solid #ccc;margin:20px auto"></canvas>
+</body>
+<script>
+    var ball = { x: 512, y: 100, r: 20, g: 2, vx: -4, vy: 0, color: "#005588" };//x,y表示坐标   半径r  加速度g 速度vx 速度vy也就是y方向的速度
+    window.onload = function () {
+        var canvas = document.getElementById("canvas");
+        canvas.width = 1024;
+        canvas.height = 768;
+        var ctx = canvas.getContext("2d");
+        setInterval(function () {
+            render();
+            update();
+        }, 50);
+        function update() {
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            ball.vy += ball.g;
+            if (ball.y >= 768 - ball.r) {
+                ball.y = 768 - ball.r;
+                ball.vy = -ball.vy * 0.5;
+            }
+        }
+        function render() {
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.fillStyle = ball.color;
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
+            ctx.closePath();
+            ctx.fill();
+        }
+    }
+</script>
+
+</html>

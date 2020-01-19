@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>五周年红包雨</title>
+    <meta
+      name="keywords"
+      content="桔子分期,分期,分期网,手机分期,笔记本分期,相机分期,分期付款,兼职"
+    />
+    <meta
+      name="description"
+      content="桔子分期是一家专注于年轻人分期购物的在线商城及金融服务平台，所有商品100%正品行货,支持全网分期,产品以限时特卖、零首付分期付款为主，是国内领先的年轻人分期消费服务商。"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="copyright" content="Copyright (c) juzifenqi.com" />
+    <!-- 设置QQ浏览器屏幕方向强制竖屏 -->
+    <meta name="x5-orientation" content="portrait" />
+
+    <link rel="stylesheet" href="css/h5.reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <section id="home-page">
+        <img class="bg-img" src="images/home_page/bg_img.png" alt="" />
+        <div class="start-count-down">
+          <!-- <span class="text">倒计时</span>
+          <span class="colon">:</span>
+          <span class="num">01</span>
+          <span class="colon">:</span>
+          <span class="num">21</span>
+          <span class="colon">:</span>
+          <span class="num">56</span> -->
+        </div>
+        <div id="current-time">
+          <img src="images/home_page/time_16.png" />
+        </div>
+        <button id="start-btn"></button>
+        <div class="fixed-dialog" id="no-start-dialog">
+          <div class="grey-mask"></div>
+          <div class="content-box">
+            <img src="images/home_page/no_start_bg.png" />
+            <i class="close-btn"></i>
+            <div class="start-count-down">
+              <!-- <span class="text">倒计时</span>
+              <span class="colon">:</span>
+              <span class="num">01</span>
+              <span class="colon">:</span>
+              <span class="num">21</span>
+              <span class="colon">:</span>
+              <span class="num">56</span> -->
+            </div>
+            <i class="close-btn know"></i>
+          </div>
+        </div>
+      </section>
+      <section id="rain-page" style="display: none;">
+        <div class="ready-animation">
+          <img
+            class="text"
+            src="images/rain_page/ready_status/text.png"
+            alt=""
+          />
+          <div class="num-box">
+            <div id="num-img" class="animat-on"></div>
+          </div>
+        </div>
+        <div class="arena-container" style="display: none;">
+          <canvas id="rain-arena"></canvas>
+          <div class="fixed-dialog" id="no-win-dialog">
+            <div class="grey-mask"></div>
+            <div class="content-box">
+              <img src="images/rain_page/dialog/no_win.png" />
+              <!-- 关闭按钮，刷新页面 -->
+              <a href="index.html" class="close-btn"></a>
+              <!-- 前往主会场页面 -->
+              <a href="../act_190919/index.html" class="main-btn"></a>
+            </div>
+          </div>
+          <div class="fixed-dialog" id="win-dialog">
+            <div class="grey-mask"></div>
+            <div class="content-box" id="red-packet-close">
+              <img src="images/rain_page/dialog/win.png" />
+              <div class="open-btn"></div>
+            </div>
+            <div class="content-box" id="red-packet-open">
+              <img src="images/rain_page/dialog/win_result.png" />
+              <!-- 关闭按钮，刷新页面 -->
+              <a href="index.html" class="close-btn"></a>
+              <div class="session-list">
+                <a href="index.html"></a>
+                <a href="index.html"></a>
+              </div>
+              <!-- 前往主会场页面 -->
+              <a href="../act_190919/index.html" class="main-btn"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script type="text/javascript" src="js/polyfill.js"></script>
+    <script type="text/javascript" src="js/aspen.lib.js"></script>
+    <script type="text/javascript" src="js/index.js?1"></script>
+  </body>
+</html>

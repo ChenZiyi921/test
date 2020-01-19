@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        class Bezier {
+            constructor(opts) {
+                this.main()
+                this.data = {
+                    start: [0, 0],
+                    point: [this.cvs.width - 40, this.cvs.height / 2],
+                    end: [this.cvs.width - 40, this.cvs.height],
+                    image: opts.image,
+                    imageSize: 200
+                }
+                this.draw(this.data)
+            }
+            main() {
+                this.cvs = document.getElementById('canvas');
+                this.ctx = this.cvs.getContext('2d');
+                this.dpr = window.devicePixelRatio;
+                this.clientW = document.documentElement.clientWidth;
+                this.clientH = document.documentElement.clientHeight;
+                this.tf = val => { return val / 750 * this.clientW * this.dpr };
+                this.cvs.width = this.tf(this.clientW);
+                this.cvs.height = this.tf(this.clientH);
+                this.quadraticBezier = (p0, p1, p2, t) => {
+                    const k = 1 - t;
+                    return k * k * p0 + 2 * (1 - t) * t * p1 + t * t * p2;
+                }
+                this.percent = 0;
+                this.s = 0.1;
+                this.image = new Image();
+                this.step = 50;
+            }
+            draw(data) {
+                this.image.src = data.image;
+                let render = () => {
+                    console.log(1)
+                    this.ctx.clearRect(0, 0, this.cvs.width, this.cvs.height);
+                    this.drawCurvePath(data.start, data.point, data.end, this.percent);
+                    this.percent += this.s;
+                    this.s += 0.05;
+                    if (this.percent <= 100) {
+                        window.requestAnimationFrame(render)
+                    } else {
+                        this.ctx.clearRect(0, 0, this.cvs.width, this.cvs.height);
+                        window.cancelAnimationFrame(render);
+                    }
+                }
+                render()
+            }
+            createThumbnail(x, y) {
+                this.data.imageSize -= this.data.imageSize / this.step;
+                this.ctx.translate(-(this.data.imageSize / 2), -(this.data.imageSize / 2));
+                this.ctx.beginPath();
+                this.circleImg(this.ctx, this.image, x, y, this.data.imageSize / 2);
+                this.ctx.restore();
+                this.ctx.fillStyle = 'rgba(255,255,255,.5)';
+                this.ctx.fill();
+            }
+            drawCurvePath(start, point, end, percent) {
+                let x = 0;
+                let y = 0;
+                this.ctx.beginPath();
+                this.ctx.moveTo(start[0], start[1]);
+                for (let t = 0; t <= percent / 100; t += 0.005) {
+                    x = this.quadraticBezier(start[0], point[0], end[0], t);
+                    y = this.quadraticBezier(start[1], point[1], end[1], t);
+                    this.ctx.lineTo(x, y);
+                }
+                this.ctx.strokeStyle = "#09f";
+                this.ctx.stroke();
+                this.ctx.save();
+                this.createThumbnail(x, y);
+            }
+            circleImg(ctx, img, x, y, r) {
+                let d = 2 * r;
+                let cx = x + r;
+                let cy = y + r;
+                ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+                ctx.clip();
+                ctx.drawImage(img, x, y, d, d);
+            }
+        }
+        new Bezier({
+            image: 'http://cool.juzifenqi.com/yy/ue/php/upload/image/20161017/1476689174188887.jpg'
+        })
+    </script>
+</body>
+
+</html>

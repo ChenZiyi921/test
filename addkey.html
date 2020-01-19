@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const json = [
+            {
+                "isFree": "0",
+                "month": "1"
+            },
+            {
+                "isFree": "0",
+                "month": "2"
+            },
+            {
+                "isFree": "0",
+                "month": "3"
+            },
+            {
+                "isFree": "0",
+                "month": "6"
+            },
+            {
+                "isFree": "0",
+                "month": "9"
+            },
+            {
+                "isFree": "0",
+                "month": "12"
+            }
+        ]
+
+        let isFree = true;
+        let monthCompare = 0;
+        let pushIndex = 0;
+        json.forEach((item, index) => {
+            if (item.isFree == '1' && Number(item.month) > Number(monthCompare)) {
+                isFree = false;
+                monthCompare = item.month;
+                pushIndex = index;
+            }
+        })
+        if (isFree) {
+            json.forEach((item, index) => {
+                if (Number(item.month) > Number(monthCompare)) {
+                    monthCompare = item.month;
+                    pushIndex = index;
+                }
+            })
+        }
+        json[pushIndex].active = '1'
+        console.log(pushIndex)
+        console.log(json)
+    </script>
+</body>
+
+</html>

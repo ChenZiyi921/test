@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var data = {
+            a: 1,
+            b: {
+                c: [{
+                    d: [{
+                        e: '1'
+                    }, {
+                        f: '2'
+                    },{
+                        e: '3'
+                    }, {
+                        f: '4'
+                    }, {
+                        f: '0'
+                    }]
+                }]
+            }
+        }
+        Object.prototype.dig = function (params) {
+            let pointerList = params.replace(/\[/g, ".").replace(/\]/g, "").split(".");
+            let obj = this;
+            for (let i = 0; i < pointerList.length; ++i) {
+                let next = obj[pointerList[i]]
+                if (i === pointerList.length - 1 && typeof next !== 'undefined' || next !== null && typeof next === 'object') {
+                    obj = next
+                } else {
+                    console.error(`${pointerList[i]} undefined`);
+                    return ''
+                }
+            }
+            return obj
+        }
+        console.log(data.dig('b.c[0].d[1].f'))
+    </script>
+</body>
+
+</html>

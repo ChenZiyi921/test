@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>二次贝塞尔曲线</title>
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <style type="text/css">
+        body,
+        h1 {
+            margin: 0;
+        }
+
+        canvas {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width=600 height=1600></canvas>
+    <script>
+        /**
+        * @param sx 起始点x坐标
+        * @param sy 起始点y坐标
+        * @param ex 结束点x坐标
+        * @param ey 结束点y坐标
+        * @param cx 控制点x坐标
+        * @param cy 控制点y坐标
+        * @param part 将起始点到控制点的线段分成的份数，数值越高，计算出的曲线越精确
+        * @param interval 画图的间隔
+        * @return function 调用一次就向后画一段曲线
+        */
+        function draw(sx, sy, ex, ey, cx, cy, part, interval) {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+            //绘制起始点、控制点、终点 
+            ctx.beginPath();
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(cx, cy);
+            ctx.lineTo(ex, ey);
+            ctx.stroke();
+
+            // 起始点到控制点的x和y每次的增量
+            var changeX1 = (cx - sx) / part;
+            var changeY1 = (cy - sy) / part;
+            // 控制点到结束点的x和y每次的增量
+            var changeX2 = (ex - cx) / part;
+            var changeY2 = (ey - cy) / part;
+
+            // console.log(changeX1)
+            // console.log(changeY1)
+            // console.log(changeX2)
+            // console.log(changeY2)
+
+            // 上次的点坐标
+            var lastX = sx;
+            var lastY = sy;
+            // console.log(lastX)
+            // console.log(lastY)
+            var i = 0;
+
+            return function () {
+                // 计算两个动点的坐标
+                var qx1 = sx + changeX1 * i;
+                var qy1 = sy + changeY1 * i;
+                var qx2 = cx + changeX2 * i;
+                var qy2 = cy + changeY2 * i;
+                // 计算得到此时的一个贝塞尔曲线上的点
+                var bx = qx1 + (qx2 - qx1) * i / part;
+                var by = qy1 + (qy2 - qy1) * i / part;
+
+                console.log(qx1)
+                console.log(qy1)
+                console.log(qx2)
+                console.log(qy2)
+                ctx.clearRect(0, 0, 600, 1600);
+                ctx.save();
+                // 从上次的点继续画
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(bx, by);
+                ctx.stroke();
+                ctx.restore();
+                // 保存点坐标
+                lastX = bx;
+                lastY = by;
+
+                i += 8;
+                if (i < part) {
+                    window.requestAnimationFrame(arguments.callee);
+                }
+            }
+        }
+
+        draw(500, 200, 100, 1600, 100, 500, 200)();
+
+        class Bezier{}
+    </script>
+</body>
+
+</html>

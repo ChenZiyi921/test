@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            position: relative;
+        }
+
+        div {
+            text-align: center;
+            background-color: rgb(139, 206, 248);
+        }
+
+        .before {
+            width: 300px;
+            height: 300px;
+            line-height: 300px;
+            margin: 0 auto;
+            transition: all 1s;
+        }
+
+        .after {
+            width: 100vw;
+            height: 100vh;
+            line-height: 100vh;
+            position: absolute;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="before" id="before"></div>
+    <div class="after" id="after"></div>
+
+    <script>
+        let before = document.querySelector('#before');
+        let after = document.querySelector('#after');
+        // 获取过度前 位置大小
+        let first = before.getBoundingClientRect();
+        // 获取过度后 位置大小
+        let last = after.getBoundingClientRect();
+        console.log(first);
+        console.log(last);
+
+        // 记录前后大小位置差
+        let invert = {
+            left: first.left - last.left,
+            top: first.top - last.top,
+            width: first.width / last.width,
+            height: first.height / last.height,
+        };
+        // 让after通过transform变成before的大小，以及移动到before的位置
+        after.style.visibility = 'hidden';
+        after.style.transformOrigin = 'top left';
+        after.style.transform = `translate(${invert.left}px,${invert.top}px) scale(${invert.width},${invert.height})`;
+        // 放大
+        before.addEventListener('click', function () {
+            after.style.transform = '';
+            after.style.transition = ' all 1s';
+            after.style.visibility = 'visible';
+
+        });
+        // 缩小
+        after.addEventListener('click', function () {
+            after.style.visibility = 'hidden';
+            after.style.transition = ' all 1s';
+            after.style.transform =
+                `translate(${invert.left}px,${invert.top}px) scale(${invert.width},${invert.height})`;
+        });
+    </script>
+</body>
+
+</html>

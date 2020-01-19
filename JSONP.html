@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function JSONP(url, data) {
+            return new Promise((resolve, reject) => {
+                // 根据url是否带有参数决定参数前缀符
+                let paramFlag = url.indexOf('?') === -1 ? '?' : '&'
+                // 定义回调函数名
+                let callbackName = `myJson_${Data.now()}`
+                // 组装带回调函数和请求参数的url
+                url += `${paramFlag}callback=${callbackName}`
+                if (data) {
+                    for (let i in data) {
+                        url += `&${i} = ${data[i]}`
+                    }
+                }
+                // 动态创建script标签 在回调函数中需要对该动态创建的标签进行删除
+                let script = document.createElement('script')
+                script.src = url
+                // jsonp返回数据到回调函数 需要注意 回调函数必须绑定在window上 且接受数据完毕后要进行回调函数的删除
+                window[callbackName] = (res) => {
+                    // 删除绑定在window上的回调函数
+                    delete window[callbackName]
+                    // 删除动态创建的script标签
+                    document.body.removeChild(script)
+                    if (res) {
+                        resolve(res)
+                    } else {
+                        reject('没有返回数据')
+                    }
+                }
+                // 处理动态加载script标签异常的情况
+                script.addEventListener('error', () => {
+                    delete window[callbackName]
+                    document.body.removeChild(script)
+                    reject('script资源加载失败')
+                }, false)
+                // 添加js节点到document上，开始请求
+                dcoument.body.appendChild(script)
+            })
+        }
+        const url = 'juzifenqi.com'
+        const data = {}
+
+        JSONP(url, data).then(res => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+
+    </script>
+</body>
+
+</html>

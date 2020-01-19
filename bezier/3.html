@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #canvas {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .1);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        class Bezier {
+            constructor() {
+                this.init()
+                this.play(this.sx, this.sy, this.cx, this.cy, this.ex, this.ey, 200)
+            }
+            init() {
+                this.cvs = document.getElementById('canvas');
+                this.ctx = this.cvs.getContext('2d');
+                this.dpr = window.devicePixelRatio;
+                this.clientW = document.documentElement.clientWidth;
+                this.clientH = document.documentElement.clientHeight;
+                this.tf = val => { return val / 750 * this.clientW * this.dpr };
+                this.cvs.width = this.tf(this.clientW);
+                this.cvs.height = this.tf(this.clientH);
+                this.sx = this.tf(this.clientW / 2);
+                this.sy = this.tf(this.clientH / 4);
+                this.cx = 40;
+                this.cy = this.tf(this.clientH / 2);
+                this.ex = 40;
+                this.ey = this.tf(this.clientH - 40);
+            }
+            play(sx, sy, cx, cy, ex, ey, copies) {
+                const dots = (x, y) => {
+                    this.ctx.beginPath();
+                    this.ctx.arc(x, y, 5, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = '#09f';
+                    this.ctx.fill()
+                }
+                dots(sx, sy);
+                dots(cx, cy);
+                dots(ex, ey);
+                this.ctx.beginPath();
+                this.ctx.moveTo(sx, sy);
+                this.ctx.lineTo(cx, cy);
+                this.ctx.lineTo(ex, ey);
+                this.ctx.stroke();
+                let dx = (cx - sx) / copies;
+                let dy = (cy - sy) / copies;
+                let ex1 = (ex - cx) / copies;
+                let ey1 = (ey - cy) / copies;
+                let px = sx;
+                let py = sy;
+                let i = 0;
+                const render = () => {
+                    let dxc = sx + dx * i;
+                    let dyc = sy + dy * i;
+                    let exc = cx + ex1 * i;
+                    let eyc = cy + ey1 * i;
+                    let fx = dxc + (exc - dxc) * i / copies;
+                    let fy = dyc + (eyc - dyc) * i / copies;
+
+                    this.ctx.beginPath();
+                    this.ctx.clearRect(px - 25, py - 25, 50, 50);
+                    this.ctx.arc(fx, fy, 20, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = 'red';
+                    this.ctx.fill();
+
+                    // this.ctx.moveTo(px, py);
+                    // this.ctx.lineTo(fx, fy);
+                    // this.ctx.stroke();
+                    px = fx;
+                    py = fy;
+                    i += 10;
+                    if (i <= copies) {
+                        window.requestAnimationFrame(render)
+                    }
+                }
+                window.requestAnimationFrame(render)
+            }
+        }
+        new Bezier
+    </script>
+</body>
+
+</html>

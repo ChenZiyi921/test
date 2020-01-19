@@ -1,0 +1,9 @@
+{
+  "name": "act_190919_hby",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "watch": "tsc -w"
+  },
+  "author": ""
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FLIP</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            transition: all 1s;
+        }
+
+        .container {
+            width: 100%;
+            height: 400px;
+        }
+
+        .content {
+            height: 46%;
+            background: rgba(0, 0, 0, .3);
+            margin: 2%;
+            float: left;
+        }
+
+        .content:nth-of-type(1) {
+            width: 36%;
+        }
+
+        .content:nth-of-type(2) {
+            width: 56%;
+        }
+
+        .content:nth-of-type(3) {
+            width: 56%;
+        }
+
+        .content:nth-of-type(4) {
+            width: 36%;
+        }
+
+        .mask {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background: rgba(0, 0, 0, .3);
+        }
+
+        .active {
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+        <div class="content"></div>
+    </div>
+    <div class="mask"></div>
+    <script>
+        class FLIP {
+            constructor() {
+                this.last()
+            }
+            first(el) {
+
+            }
+            last(el) {
+                const items = document.querySelectorAll('.content');
+                items.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        items.forEach((t, i) => {
+                            items[i].classList.remove('active');
+                        })
+                        item.classList.add('active');
+                        document.querySelector('.mask').style.display = 'block';
+                        this.invert(document.querySelectorAll('.content')[0],document.querySelector('.active'))
+                    })
+                })
+            }
+            invert(itemImage, detailItem) {
+
+                // 首先获取点被点击图片的位置和尺寸 
+                let firstRect = itemImage.getBoundingClientRect();
+                // 然后获取详情的位置和尺寸 
+                let lastRect = detailItem.getBoundingClientRect(); // 详情到图片的动效 
+
+                detailItem.animate([{ transform: ` translateX(${firstRect.left - lastRect.left}px) translateY(${firstRect.top - lastRect.top}px) scale(${firstRect.width / lastRect.width}) ` }, { transform: ` translateX(0) translateY(0) scale(1) ` }], { duration: 600, easing: 'cubic-bezier(0.2, 0, 0.2, 1)' });
+
+
+            }
+            play(itemImage, detailItem) {
+                // 详情的位置和尺寸 
+                let itemImageRect = itemImage.getBoundingClientRect();
+                // 原图片的位置和尺寸 
+                let detailItemRect = detailItem.getBoundingClientRect();
+                // 详情回到图片的动效 
+                itemImage.animate([{ zIndex: 2, transform: ` translateX(${detailItemRect.left - itemImageRect.left}px) translateY(${detailItemRect.top - itemImageRect.top}px) scale(${detailItemRect.width / itemImageRect.width}) ` }, { zIndex: 2, transform: ` translateX(0) translateY(0) scale(1) ` }], { duration: 600, easing: 'cubic-bezier(0.2, 0, 0.2, 1)' });
+            }
+        }
+        new FLIP
+    </script>
+</body>
+
+</html>

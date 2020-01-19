@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body style="height: 1500px;">
+    <div class="btn" style="display: none; background: #09f; position: fixed; right: 20px; bottom: 40px;">234234234</div>
+    <script>
+        function goTop(ele, scrToShow) {
+            window.animation = window.requestAnimationFrame || function (fn) { return setTimeout(fn, 1000 / 60) };
+            let el = document.querySelector(ele);
+            window.addEventListener('scroll', () => {
+                let currentScroll = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                let clientH = document.documentElement.clientHeight || document.body.clientHeight;
+                currentScroll >= (Math.abs(scrToShow) || clientH) ? (el.style.display = 'block') : (el.style.display = 'none');
+            }, !1);
+            el.addEventListener('click', function fn() {
+                let currentScroll = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                if (currentScroll > 0) {
+                    window.animation(fn);
+                    window.scrollTo(0, currentScroll - (currentScroll / 30));
+                }
+            }, !1);
+        }
+
+        goTop('.btn', 800)
+
+    </script>
+</body>
+
+</html>

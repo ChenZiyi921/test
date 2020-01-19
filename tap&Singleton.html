@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="test">tap</button>
+    <script>
+        HTMLElement.prototype.addTapEvent = function (callBack) {
+            var isTouch = "ontouchend" in document ? true : false;
+            if (!!isTouch) {
+                var startTime = 0;
+                var delayTime = 300;
+                var isMove = false;
+                this.addEventListener("touchstart", function () {
+                    startTime = Date.now();
+                });
+                this.addEventListener("touchmove", function () {
+                    isMove = true;
+                });
+                this.addEventListener("touchend", function (event) {
+                    if (Date.now() - startTime > delayTime || isMove) return isMove = false;
+                    callBack(event);
+                });
+            } else {
+                this.addEventListener("click", function (event) {
+                    callBack(event);
+                });
+            }
+        }
+
+        //////////////////////////////////////////////
+        var singleton = function (fn) {
+            var result;
+            return function () {
+                return result || (result = fn.apply(this, arguments));
+            }
+        }
+
+        var createMask = singleton(
+            function () {
+                var d = document.createElement('div');
+                d.id = 'dd';
+                return document.body.appendChild(d);
+            }
+        )
+        var s = createMask();
+
+        // document.body.removeChild(document.getElementById('dd'));
+        console.log(s)
+            // document.body.appendChild(s);
+            // console.log(s)
+
+
+            // 
+
+            ; (function (proto) {
+
+                proto.serializeUrlParam = function () {
+                    var param = {};
+                    this.replace(/([^?&=#]+)=([^?&=#]+)/g, function (res, $1) {
+                        param[arguments[1]] = arguments[2];
+                    });
+                    return param;
+                };
+
+            })(String.prototype);
+
+
+        function formVerify(container) {
+            container = container || document;
+            var eles = container.querySelectorAll('.J-verify'); // 需要验证的元素添加此类
+            for (var i = 0; i < eles.length; i++) {
+                var ele = eles[i];
+                var verifyTypeVal = ele.getAttribute('verify-type'); // 需要验证元素的验证类型 tel password smsCode ...
+                var verifyTipMsg = ele.getAttribute('verify-tip'); // 验证不通过的提示语前部  eg: 类型 + '不能为空'
+                if (/^\s*$/.test(ele.value)) {
+                    pop({ msg: ele.nodeName == 'INPUT' && !ele.readOnly ? verifyTipMsg + '不能为空' : '请选择' + verifyTipMsg });
+                    return false;
+                }
+                var verifyReg = null;
+                switch (verifyTypeVal) {
+                    case 'tel':
+                        verifyReg = /^1\d{10}$/;
+                        break;
+                    case 'password':
+                        verifyReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/;
+                        break;
+                    case 'smsCode':
+                        verifyReg = /^\d{6}$/;
+                        break;
+                    case 'carNo':
+                        verifyReg = /^[0-9A-Za-z]{5}$/;
+                        break;
+                }
+                if (verifyTypeVal && !verifyReg.test(ele.value)) {
+                    pop({ msg: verifyTipMsg + '格式不正确' });
+                    return false;
+                }
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
