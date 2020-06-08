@@ -65,25 +65,25 @@
         }
 
 
-        const URL = 'https://unpkg.com'
-        function ajaxStack(stack) {
-            if (stack.length <= 0) return
-            let xhr = new XMLHttpRequest()
-            xhr.open('GET', URL)
-            xhr.onload = function () {
-                stack[0]()
-                stack.shift()
-                ajaxStack(stack)
-            }
-            xhr.send(null)
-        }
-        ajaxStack([
-            () => console.log(1),
-            () => console.log(2),
-            () => console.log(3),
-            () => console.log(4),
-            () => console.log(5)
-        ])
+        // const URL = 'https://unpkg.com'
+        // function ajaxStack(stack) {
+        //     if (stack.length <= 0) return
+        //     let xhr = new XMLHttpRequest()
+        //     xhr.open('GET', URL)
+        //     xhr.onload = function () {
+        //         stack[0]()
+        //         stack.shift()
+        //         ajaxStack(stack)
+        //     }
+        //     xhr.send(null)
+        // }
+        // ajaxStack([
+        //     () => console.log(1),
+        //     () => console.log(2),
+        //     () => console.log(3),
+        //     () => console.log(4),
+        //     () => console.log(5)
+        // ])
     </script>
 </body>
 

@@ -1,0 +1,231 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>canvas鼠标画图</title>
+<style>
+	body {
+		background-color: yellow;
+	}
+
+	#c1 {
+		background-color: white;
+	}
+</style>
+<!-- <script type="text/javascript" src="draw.js"></script> -->
+</head>
+ 
+
+<body>
+	    <canvas id="c1" width="800px" height="800px">
+		        <span>该浏览器不支持canvas内容</span> 
+		    </canvas>
+
+	<script>
+		function Position(x, y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		var Vector = function (x, y) {
+			var vec = {
+				vx: x,
+				vy: y,
+				// 缩放
+				scale: function (scale) {
+					vec.vx *= scale;
+					vec.vy *= scale;
+				},
+				//加 另一个向量
+				add: function (vec2) {
+					vec.vx += vec2.vx;
+					vec.vy += vec2.vy;
+				},
+				//减 另一个向量
+				sub: function (vec2) {
+					vec.vx -= vec2.vx;
+					vec.vy -= vec2.vy;
+				},
+				//相反方向
+				negate: function () {
+					vec.vx = -vec.vx;
+					vec.vy = -vec.vy;
+				},
+				//向量长度
+				length: function () {
+					return Math.sqrt(vec.vx * vec.vx + vec.vy * vec.vy);
+				},
+				//向量长度的平方
+				lengthSquared: function () {
+					return vec.vx * vec.vx + vec.vy * vec.vy;
+				},
+				//标准化
+				normalize: function () {
+					var len = Math.sqrt(vec.vx * vec.vx + vec.vy * vec.vy);
+					if (len) {
+						vec.vx /= len;
+						vec.vy /= len;
+					}
+					return len;
+				},
+				//旋转
+				rotate: function (angle) {
+					var vx = vec.vx,
+						vy = vec.vy,
+						cosVal = Math.cos(angle),
+						sinVal = Math.sin(angle);
+					vec.vx = vx * cosVal - vy * sinVal;
+					vec.vy = vx * sinVal + vy * cosVal;
+				},
+				//调试
+				toString: function () {
+					return '(' + vec.vx.toFixed(3) + ',' + vec.vy.toFixed(3) + ')';
+				}
+			};
+			return vec;
+		};
+
+		function Draw(context) {
+			this.context = context;
+		}
+
+		function Circle(context, center) {
+			Draw.call(this, context);
+			this.center = center;
+			this.radius = 10.0;
+			this.draw = function () {
+				//外圆
+				context.fillStyle = "#555555";
+				context.strokeStyle = "#333333";
+				context.beginPath();
+				context.arc(this.center.x, this.center.y, this.radius, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.stroke();
+				context.fill();
+				//内圆
+				context.fillStyle = "#888888";
+				context.beginPath();
+				context.arc(this.center.x, this.center.y, this.radius * 0.5, 0, 2 * Math.PI, true);
+				context.closePath();
+				context.fill();
+			}
+		}
+		Circle.prototype = new Draw();
+
+		function Line(context, startPosition, endPosition) {
+			Draw.call(this, context);
+			this.startPosition = startPosition;
+			this.endPosition = endPosition;
+			this.draw = function () {
+				context.strokeStyle = "#00ff00";
+				this.context.lineWidth = 5;
+				this.context.moveTo(this.startPosition.x, this.startPosition.y);
+				this.context.lineTo(this.endPosition.x, this.endPosition.y);
+				this.context.stroke();
+			}
+		}
+		Line.prototype = new Draw();
+
+		function Arrow(context, startPosition, endPosition) {
+			Draw.call(this, context);
+			this.startPosition = startPosition;
+			this.endPosition = endPosition;
+			this.draw = function () {
+				var step = 15;
+				var dir = Vector((this.endPosition.x - this.startPosition.x), (this.endPosition.y - this.startPosition.y));
+				dir.normalize();
+
+				context.strokeStyle = "#0000ff";
+				this.context.save();
+				this.context.translate(this.endPosition.x - step * dir.vx, this.endPosition.y - step * dir.vy);
+				this.context.moveTo(-step * dir.vy, step * dir.vx);
+				this.context.lineTo(step * dir.vx, step * dir.vy);
+				this.context.lineTo(step * dir.vy, -step * dir.vx);
+				this.context.stroke();
+				this.context.restore();
+			}
+		}
+		Arrow.prototype = new Draw();
+
+		function Belt(context, startPosition, endPosition) {
+			Draw.call(this, context);
+			this.circle = new Circle(context, startPosition);
+			this.line = new Line(context, startPosition, endPosition);
+			this.arrow = new Arrow(context, startPosition, endPosition);
+
+			this.draw = function () {
+				this.circle.draw();
+				this.line.draw();
+				this.arrow.draw();
+			}
+
+			this.select = function (position) {
+				//position.x - startPosition.x
+			}
+		}
+		Belt.prototype = new Draw();
+
+		window.onload = function () {
+			var draws = [];
+			var mouseFlag = false;
+			var startPosition = null;
+			var endPosition = null;
+
+			var canvas = document.getElementById('c1');
+			var clientWidth = canvas.clientWidth;
+			var clientHeight = canvas.clientHeight;
+			var context = canvas.getContext('2d');
+			var curBelt = null;
+
+			canvas.onmousedown = function (ev) {
+				var ev = ev || window.event;
+				startPosition = new Position(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop);
+				mouseFlag = true;
+			};
+
+			canvas.onmousemove = function (ev) {
+				if (mouseFlag) {
+					var ev = ev || window.event;//获取event对象
+					endPosition = new Position(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop);
+					context.clearRect(0, 0, clientWidth, clientHeight);
+					curBelt = new Belt(context, startPosition, endPosition);
+					curBelt.draw();
+
+					for (var index = 0; index < draws.length; ++index) {
+						draws[index].select(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop);
+						draws[index].draw();
+					}
+				}
+			};
+
+			canvas.onmouseup = function () {
+				document.onmousemove = null;
+				document.onmouseup = null;
+				mouseFlag = false;
+				draws.push(curBelt);
+
+				context.clearRect(0, 0, clientWidth, clientHeight);
+				for (var index = 0; index < draws.length; ++index) {
+					draws[index].draw();
+				}
+
+
+			};
+
+			canvas.onmousemove = function (ev) {
+				if (mouseFlag) {
+					var ev = ev || window.event;//获取event对象
+					endPosition = new Position(ev.clientX - canvas.offsetLeft, ev.clientY - canvas.offsetTop);
+					context.clearRect(0, 0, clientWidth, clientHeight);
+					curBelt = new Belt(context, startPosition, endPosition);
+					curBelt.draw();
+					for (var index = 0; index < draws.length; ++index) {
+						draws[index].draw();
+					}
+				}
+			};
+		};
+	</script>
+</body>
+
+</html>

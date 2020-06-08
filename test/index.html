@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,
+        body {
+            background: #eeeeee;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #gridCanvas {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+        }
+
+        #dragCanvas {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 0;
+        }
+
+        #toolsBar {
+            position: absolute;
+            z-index: 3;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="gridCanvas"></canvas>
+    <canvas id="dragCanvas">
+    </canvas>
+
+    <div id="toolsBar">
+        <button id="addBtn">添加</button>
+        <button id="clear">清空</button>
+    </div>
+    <script src="grid.js"></script>
+    <script src="drag.js"></script>
+    <script>
+        new GridController('#ccc', 20, 20,0.2)
+        
+        var drag = new DragController
+        document.querySelector('#addBtn').addEventListener('click', function () {
+            drag.addNode(30, 'blue')
+        })
+        document.querySelector('#clear').addEventListener('click', function () {
+            drag.clearCanvas()
+        })
+    </script>
+</body>
+
+</html>
