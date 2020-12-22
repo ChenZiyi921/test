@@ -1,0 +1,59 @@
+.seckill-timeline {
+  width: 1600px;
+  height: 80px;
+  line-height: 80px;
+  margin: auto;
+  padding-top: 50px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.seckill-timeline .now-time {
+  background: #de2f36;
+  color: #fff;
+}
+
+.seckill-timeline .now-time .status,
+.seckill-timebox .count-down {
+  color: #fff;
+}
+
+.seckill-timeline .now-time .time {
+  padding-left: 40px;
+}
+
+.seckill-timebox {
+  width: 20%;
+  height: 100%;
+  background: #f3f4f8;
+  float: left;
+}
+
+.seckill-timebox .time {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.seckill-timebox .status {
+  font-size: 16px;
+  color: #808080;
+  padding-left: 24px;
+}
+
+.seckill-timebox .count-down {
+  display: block;
+  padding-top: 6px;
+}
+
+.seckill-time-right {
+  width: 50%;
+  float: right;
+  height: 100%;
+  text-align: left;
+  line-height: normal;
+}
+
+.seckill-time-right .status {
+  padding: 18px 0 0 0;
+  display: block;
+}

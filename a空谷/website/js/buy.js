@@ -116,7 +116,6 @@
 				if (av == 0) {
 					layer.confirm('请至少选择一个商品再进行改操作', {
 						title: '删除商品', skin: 'tipsing', area: ['580px', '220px'], yes: function (index) {
-
 							layer.close(layer.index);
 						}
 					});
@@ -131,7 +130,7 @@
 			})
 			$_this.find(".operating a").click(function () {
 				var $dis = $(this).parent().parent().parent();
-				layer.confirm('確定要删除已选择的相关商品嘛？', {
+				layer.confirm('確定要删除这些商品吗？', {
 					title: '删除商品', skin: 'tipsing', area: ['580px', '220px'], yes: function (index) {
 						$dis.remove();
 						layer.close(layer.index);
@@ -141,8 +140,6 @@
 					}
 				});
 			})
-
-
 		}
 
 		/*删除某项*/
@@ -160,16 +157,5 @@
 			})
 			result();
 		}
-
-
-
-
-
-
-
-
-
-
-
 	}
 })(jQuery);
