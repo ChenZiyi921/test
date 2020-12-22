@@ -828,6 +828,7 @@
 }
 
 .member {
+  height: 100%;
   margin: 0px 0 10px;
   background-color: #f7f7f7;
 }
@@ -845,6 +846,9 @@
   padding-left: 25px;
   background: url(../images/memer/memer_icon01.png) no-repeat left center;
   display: block;
+}
+.member dt span.cus01 a {
+  color: #fff;
 }
 .member dd {
   padding: 20px 45px 20px 45px;
