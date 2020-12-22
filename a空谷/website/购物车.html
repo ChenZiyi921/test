@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>首页</title>
+	<link rel="stylesheet" type="text/css" href="css/public.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/pages.css">
+	<link rel="stylesheet" type="text/css" href="css/shop.css">
+	<link rel="stylesheet" type="text/css" href="js/css/font-awesome.css">
+
+	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<script type="text/javascript" src="js/layui.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/int-public.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+
+	<script type="text/javascript" src="js/buy.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			/*购物车*/
+			$('.disadvan').purchasing();
+
+		});
+	</script>
+</head>
+
+<body>
+	<div class="layui-row top_box">
+		<div class="wrapper">
+			<div class="layui-row naviga">
+				<div class="layui-col-xs8 naviga_as">
+					<a href="javascript:;">首页</a>
+					<a href="javascript:;">公司介绍</a>
+					<a href="javascript:;">品牌宣传</a>
+					<a href="javascript:;">产品介绍</a>
+					<a href="javascript:;">客户服务</a>
+					<a href="javascript:;">党群工作</a>
+					<a href="javascript:;">通知公告</a>
+					<a href="javascript:;">联系我们</a>
+				</div>
+				<div class="layui-col-xs4 naviga_buy">
+					<div class="buys"><a href="javascript:">购物车（0）</a></div>
+					<div class="logins">
+						<a href="javascript:">登录</a> | <a href="javascript:">注册</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="layui-row top_logo">
+		<div class="wrapper">
+			<div class="logo"><a href="javascript:;"><img src="images/public/logo.png"></a></div>
+			<div class="logo_ads">
+				<a href="javascript:;"><img src="images/public/shop_06.jpg"></a>
+			</div>
+			<div class="search">
+				<div class="search_box">
+					<input type="text" placeholder="输入您想搜索的产品" name=""><a class="search_tbn" href="javascript:;">搜索</a>
+				</div>
+				<p>热门搜索： <a href="javascript:;">面粉</a><a href="javascript:;">饼干粉</a><a href="javascript:;">糕点粉</a></p>
+			</div>
+		</div>
+	</div>
+	<div class="layui-row navs">
+		<div class="wrapper">
+			<div class="wholes">
+				<a href="javascript:;" class="merch"><span>全部商品</span></a>
+				<div class="whol_box none">
+					<ul>
+						<li class="whol01">
+							<div class="whats">
+								<i class="layui-icon layui-icon-right"></i>
+								<h2><a href="javascript:">蒸煮</a></h2>
+								<p><a href="javascript:;">全麦粉</a><a href="javascript:;">包点粉</a><a
+										href="javascript:;">中筋馒头粉</a><a href="javascript:;">麦芯粉头粉</a><a
+										href="javascript:;">面皮粉</a><a href="javascript:;">饺子粉</a></p>
+							</div>
+						</li>
+						<li class="whol02">
+							<div class="whats">
+								<i class="layui-icon layui-icon-right"></i>
+								<h2><a href="javascript:">煎炸</a></h2>
+								<p><a href="javascript:;">全麦粉</a><a href="javascript:;">包点粉</a><a
+										href="javascript:;">中筋馒头粉</a><a href="javascript:;">麦芯粉头粉</a><a
+										href="javascript:;">面皮粉</a><a href="javascript:;">饺子粉</a></p>
+							</div>
+						</li>
+						<li class="whol03">
+							<div class="whats">
+								<i class="layui-icon layui-icon-right"></i>
+								<h2><a href="javascript:">烘培</a></h2>
+								<p><a href="javascript:;">面包粉</a><a href="javascript:;">糕点粉</a><a
+										href="javascript:;">小麦粉</a></p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="menu">
+				<ul>
+					<li><a href="javascript:;">商城首页</a></li>
+					<li class="on_this"><a href="javascript:;">企业购</a></li>
+					<li><a href="javascript:;">热卖推荐</a></li>
+					<li><a href="javascript:;">限时特惠</a></li>
+					<li><a href="javascript:;">新品加推</a></li>
+					<li><a href="javascript:;">客户服务</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="trchase01 layui-row">
+		<div class="wrapper">
+			<div class="trcha_tit">
+				<span class="on_this"><a href="javascript:;">1.我的购物车</a><em></em></span>
+				<span class=""><a href="javascript:;">2.填写订单信息</a><em></em></span>
+				<span class=""><a href="javascript:;">3.成功提交订单</a></span>
+			</div>
+			<div class="layui-row disadvan">
+				<div class="provide">
+					<div class="provs_nav">
+						<div class="provs01"><input type="checkbox" class="checkall" lay-skin="primary" name=""
+								title=""> 全选</div>
+						<div class="provs02">商品</div>
+						<div class="provs03">单价</div>
+						<div class="provs05">数量</div>
+						<div class="provs06">小计</div>
+						<div class="provs07">操作</div>
+					</div>
+					<div class="provs_cont">
+						<div class="layui-row belong_box">
+							<div class="matter_list pric_id layui-row">
+								<div class="tick"><input type="checkbox" class="chec_tk checksin" name="cartCheckBox"
+										title=""></div>
+								<div class="mater_box layui-row"">
+		                        	<input type=" text" style="visibility: hidden;" value="10" name="" class="freigher">
+									<div class="darling">
+										<h1><img src="images/pages/portrait_img01.png"></h1>
+										<h2>
+											<span>苏三零超级包点用小麦粉 麦芯粉 包子馒头 面条饺皮粉原装5kg</span>
+										</h2>
+									</div>
+									<div class="provs03 price_un">¥<span>160.2</span></div>
+									<div class="provs05 antity">
+										<div class="antity_box">
+											<span class="layui-btn layui-btn-primary subs">-</span>
+											<input type="text" class="layui-input numchange" value="1">
+											<span class="layui-btn layui-btn-primary plus">+</span>
+										</div>
+									</div>
+									<div class="provs06 subtotal plan_sml">¥<span>882.00</span></div>
+									<div class="provs07 operating"><a href="javascript:;">删除</a></div>
+								</div>
+							</div>
+							<div class="matter_list pric_id layui-row">
+								<div class="tick"><input type="checkbox" class="chec_tk checksin" name="cartCheckBox"
+										title=""></div>
+								<div class="mater_box layui-row"">
+		                        	<input type=" text" style="visibility: hidden;" value="20" name="" class="freigher">
+									<div class="darling">
+										<h1><img src="images/pages/portrait_img01.png"></h1>
+										<h2>
+											<span>苏三零超级包点用小麦粉 麦芯粉 包子馒头 面条饺皮粉原装5kg</span>
+										</h2>
+									</div>
+									<div class="provs03 price_un">¥<span>40</span></div>
+									<div class="provs05 antity">
+										<div class="antity_box">
+											<span class="layui-btn layui-btn-primary subs">-</span>
+											<input type="text" class="layui-input numchange" value="1">
+											<span class="layui-btn layui-btn-primary plus">+</span>
+										</div>
+									</div>
+									<div class="provs06 subtotal plan_sml">¥<span>882.00</span></div>
+									<div class="provs07 operating"><a href="javascript:;">删除</a></div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+
+				<div class="orderform">
+					<div class="order_os">
+						<span><input type="checkbox" class="checkall" name="" title=""> 全选</span>
+						<a href="javascript:;" class="delet_sel">刪除选中商品</a>
+					</div>
+					<div class="order_ui">
+						<a href="javascript:;" class="refer">去结算</a>
+						<h2 class="aggregate">
+							<p class="regats">
+								<span>已选中<i class="num_sho">0</i>件商品</span>
+								<span>已选中 <i class="font_f16">￥</i> <i class="num_tal font_f16">0.00</i></span>
+							</p>
+							<p class="delivery"><span class="rega_sp">配送费金额：<i>$100.00</i></span></p>
+						</h2>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<div class="footer layui-row">
+		<div class="layui-col-xs5 company">
+			<h2 class="fotlog"><img src="images/public/shop_21.jpg"> 江苏三零面粉有限公司</h2>
+			<div class="comp_txt">
+				<p>
+					<span>泰兴苏中制粉有限公司</span>
+					地址：江苏省泰兴市黄桥镇通站西路9号<br>
+					电话：0523-8721 3743<br>
+					邮箱：txszzf@126.com
+				</p>
+				<p>
+					<span>泰兴苏中制粉有限公司</span>
+					地址：江苏省泰兴市黄桥镇通站西路9号<br>
+					电话：0523-8721 3743<br>
+					邮箱：txszzf@126.com
+				</p>
+			</div>
+		</div>
+		<div class="layui-col-xs7 shuting">
+			<h2 class="layui-row"><a href="javascript:;">关于我们</a><a href="javascript:;">免费条款</a><a
+					href="javascript:;">苏粮集团</a><a href="javascript:;">服务协议</a><a href="javascript:;">隐私协议</a><a
+					href="javascript:;">友情链接</a></h2>
+			<div class="servis layui-row">
+				<div class="ser_box">
+					<p><img src="images/public/fot_icon01.png"> 客服电话：<span>4006-515-848</span></p>
+					<p><img src="images/public/fot_icon02.png"> 企业采购热线：<span>4006-515-848</span></p>
+				</div>
+				<div class="wechat">
+					<img src="images/public/fot_wx.png">
+					<br>
+					官方微信
+				</div>
+			</div>
+			<h3 class="layui-row">Copyright ©2014-2020 江苏三零面粉有限公司.All rights reserved 经营许可证：苏B2-20180235苏ICP备10077873号
+			</h3>
+		</div>
+	</div>
+
+	<div class="topping"><i><img src="images/public/icon02.png"></i></div>
+</body>
+
+</html>
