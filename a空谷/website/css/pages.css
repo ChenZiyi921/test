@@ -94,7 +94,7 @@
 }
 .servi_lf {
   width: 300px;
-  height: 386px;
+  height: 440px;
   float: left;
 }
 .servi_cont {
@@ -661,7 +661,7 @@
 .secur_list {
 }
 .secur_cont {
-  min-height: 190px;
+  min-height: 220px;
   position: relative;
   background: url(../images/pages/coupn_box.png) no-repeat center top;
   background-size: 100%;
@@ -710,6 +710,7 @@
   margin: 20px auto 10px;
   font-size: 16px;
   border: 1px solid #de2f36;
+  color: #de2f36;
   border-radius: 40px;
   display: block;
 }

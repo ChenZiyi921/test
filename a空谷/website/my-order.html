@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>首页</title>
+	<title>我的订单</title>
 	<link rel="stylesheet" type="text/css" href="css/public.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/pages.css">
@@ -63,7 +63,7 @@
 				<a href="javascript:;" class="merch"><span>全部商品</span></a>
 				<div class="whol_box none">
 					<ul>
-						<li class="whol01">
+						<li class="whol01 whol_boxLi">
 							<div class="whats">
 								<i class="layui-icon layui-icon-right"></i>
 								<h2><a href="javascript:">蒸煮</a></h2>
@@ -71,8 +71,17 @@
 										href="javascript:;">中筋馒头粉</a><a href="javascript:;">麦芯粉头粉</a><a
 										href="javascript:;">面皮粉</a><a href="javascript:;">饺子粉</a></p>
 							</div>
+							<ul id="whats-details" class="whats-details">
+								<li class="text"><a href="javascript:;">饺子粉1</a></li>
+								<li class="text"><a href="javascript:;">全麦面粉</a></li>
+								<li class="text"><a href="javascript:;">中华面点超级粉</a></li>
+								<li class="text"><a href="javascript:;">多用途麦芯粉</a></li>
+								<li class="text"><a href="javascript:;">馒头粉</a></li>
+								<li class="text"><a href="javascript:;">超级粉</a></li>
+								<li class="text"><a href="javascript:;">特精粉</a></li>
+							</ul>
 						</li>
-						<li class="whol02">
+						<li class="whol02 whol_boxLi">
 							<div class="whats">
 								<i class="layui-icon layui-icon-right"></i>
 								<h2><a href="javascript:">煎炸</a></h2>
@@ -80,14 +89,32 @@
 										href="javascript:;">中筋馒头粉</a><a href="javascript:;">麦芯粉头粉</a><a
 										href="javascript:;">面皮粉</a><a href="javascript:;">饺子粉</a></p>
 							</div>
+							<ul id="whats-details" class="whats-details">
+								<li class="text"><a href="javascript:;">饺子粉2</a></li>
+								<li class="text"><a href="javascript:;">全麦面粉</a></li>
+								<li class="text"><a href="javascript:;">中华面点超级粉</a></li>
+								<li class="text"><a href="javascript:;">多用途麦芯粉</a></li>
+								<li class="text"><a href="javascript:;">馒头粉</a></li>
+								<li class="text"><a href="javascript:;">超级粉</a></li>
+								<li class="text"><a href="javascript:;">特精粉</a></li>
+							</ul>
 						</li>
-						<li class="whol03">
+						<li class="whol03 whol_boxLi">
 							<div class="whats">
 								<i class="layui-icon layui-icon-right"></i>
 								<h2><a href="javascript:">烘培</a></h2>
 								<p><a href="javascript:;">面包粉</a><a href="javascript:;">糕点粉</a><a
 										href="javascript:;">小麦粉</a></p>
 							</div>
+							<ul id="whats-details" class="whats-details">
+								<li class="text"><a href="javascript:;">饺子粉3</a></li>
+								<li class="text"><a href="javascript:;">全麦面粉</a></li>
+								<li class="text"><a href="javascript:;">中华面点超级粉</a></li>
+								<li class="text"><a href="javascript:;">多用途麦芯粉</a></li>
+								<li class="text"><a href="javascript:;">馒头粉</a></li>
+								<li class="text"><a href="javascript:;">超级粉</a></li>
+								<li class="text"><a href="javascript:;">特精粉</a></li>
+							</ul>
 						</li>
 					</ul>
 				</div>
@@ -95,11 +122,11 @@
 			<div class="menu">
 				<ul>
 					<li class="on_this"><a href="javascript:;">商城首页</a></li>
-					<li><a href="javascript:;">企业购</a></li>
-					<li><a href="javascript:;">热卖推荐</a></li>
-					<li><a href="javascript:;">限时特惠</a></li>
-					<li><a href="javascript:;">新品加推</a></li>
-					<li><a href="javascript:;">客户服务</a></li>
+					<li><a href="./business-shopping.html">企业购</a></li>
+					<li><a href="./hot-sale.html">热卖推荐</a></li>
+					<li><a href="./seckill.html">限时特惠</a></li>
+					<li><a href="./new-product.html">新品加推</a></li>
+					<li><a href="./customer-service.html">客户服务</a></li>
 				</ul>
 			</div>
 		</div>
@@ -109,31 +136,30 @@
 			<div class="service_box layui-row">
 				<div class="servi_lf">
 					<dl class="member">
-						<dt><span class="cus01">客服服务</span></dt>
+						<dt><span class="cus01"><a href="./account.html">账户首页</a></span></dt>
 						<dd>
 							<ul class="setup">
 								<li>
-									<a class="acco_a set01" href="javascript:;"><span>账号设置</span><i
+									<a class="acco_a set01" href="javascript:;"><span>账户设置</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a class="on_this" href="javascript:;">账号信息</a>
-										<a href="javascript:;">地址管理</a>
+										<a href="./account-info.html">账户信息</a>
+										<a href="./address.html">地址管理</a>
 									</div>
 								</li>
 								<li>
-									<a class="acco_a set02" href="javascript:;"><span>账号设置</span><i
+									<a class="acco_a set02" href="javascript:;"><span>订单中心</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="javascript:;">账号信息</a>
-										<a href="javascript:;">地址管理</a>
+										<a class="on_this" href="javascript:;">我的订单</a>
+										<a href="./invoice.html">电子发票</a>
 									</div>
 								</li>
 								<li>
-									<a class="acco_a set03" href="javascript:;"><span>账号设置</span><i
+									<a class="acco_a set03" href="javascript:;"><span>我的卡包</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="javascript:;">账号信息</a>
-										<a href="javascript:;">地址管理</a>
+										<a href="./coupon.html">优惠券</a>
 									</div>
 								</li>
 							</ul>
@@ -142,69 +168,52 @@
 					</dl>
 				</div>
 				<div class="servi_cont layui-row">
-					<div class="modify_tit layui-row"><span>修改头像</span></div>
+					<div class="modify_tit layui-row"><span>我的订单</span></div>
 					<div class="modify_cont layui-row">
-						<div class="modi_lf">
-							<a href="javascript:;" class="locas">本地上传</a>
-							<P>仅支持JPG、GIF、PNG、JPEG、BMP格式，文件小于4M</P>
-							<div class="bequeath">
-								<a href="javascript:;" class="beque_a"><img src="images/memer/pass.png"></a>
-							</div>
-							<a href="javascript:;" class="rvation">保存</a>
-						</div>
-						<div class="modi_fr">
-							<h2>效果预览</h2>
-							<p class="pixe1">你上传的图片会自动生成2种尺寸<br>
-								请注意小尺寸的头像是否清晰</p>
-							<h3></h3>
-							<p class="pixe2">100*100像素</p>
-							<h4></h4>
-							<p class="pixe2">50*50像素</p>
-						</div>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
-
-	<div class="footer layui-row">
-		<div class="layui-col-xs5 company">
-			<h2 class="fotlog"><img src="images/public/shop_21.jpg"> 江苏三零面粉有限公司</h2>
-			<div class="comp_txt">
-				<p>
-					<span>泰兴苏中制粉有限公司</span>
-					地址：江苏省泰兴市黄桥镇通站西路9号<br>
-					电话：0523-8721 3743<br>
-					邮箱：txszzf@126.com
-				</p>
-				<p>
-					<span>泰兴苏中制粉有限公司</span>
-					地址：江苏省泰兴市黄桥镇通站西路9号<br>
-					电话：0523-8721 3743<br>
-					邮箱：txszzf@126.com
-				</p>
-			</div>
-		</div>
-		<div class="layui-col-xs7 shuting">
-			<h2 class="layui-row"><a href="javascript:;">关于我们</a><a href="javascript:;">免费条款</a><a
-					href="javascript:;">苏粮集团</a><a href="javascript:;">服务协议</a><a href="javascript:;">隐私协议</a><a
-					href="javascript:;">友情链接</a></h2>
-			<div class="servis layui-row">
-				<div class="ser_box">
-					<p><img src="images/public/fot_icon01.png"> 客服电话：<span>4006-515-848</span></p>
-					<p><img src="images/public/fot_icon02.png"> 企业采购热线：<span>4006-515-848</span></p>
-				</div>
-				<div class="wechat">
-					<img src="images/public/fot_wx.png">
-					<br>
-					官方微信
+	<div class="footer-wrap">
+		<div class="footer layui-row">
+			<div class="layui-col-xs5 company">
+				<h2 class="fotlog"><img src="images/public/shop_21.jpg"> 江苏三零面粉有限公司</h2>
+				<div class="comp_txt">
+					<p>
+						<span>泰兴苏中制粉有限公司</span>
+						地址：江苏省泰兴市黄桥镇通站西路9号<br>
+						电话：0523-8721 3743<br>
+						邮箱：txszzf@126.com
+					</p>
+					<p>
+						<span>江苏三零面粉海安有限公司</span>
+						地址：江苏省南通市海安市丹凤路49号<br>
+						电话：0513-8188 3330<br>
+						邮箱：slha001@126.com
+					</p>
 				</div>
 			</div>
-			<h3 class="layui-row">Copyright ©2014-2020 江苏三零面粉有限公司.All rights reserved 经营许可证：苏B2-20180235苏ICP备10077873号
-			</h3>
+			<div class="layui-col-xs7 shuting">
+				<h2 class="layui-row"><a href="javascript:;">关于我们</a><a href="javascript:;">免费条款</a><a
+						href="javascript:;">苏粮集团</a><a href="javascript:;">服务协议</a><a href="javascript:;">隐私协议</a><a
+						href="javascript:;">友情链接</a></h2>
+				<div class="servis layui-row">
+					<div class="ser_box">
+						<p><img src="images/public/fot_icon01.png"> 客服电话：<span>4006-515-848</span></p>
+						<p><img src="images/public/fot_icon02.png"> 企业采购热线：<span>4006-515-848</span></p>
+					</div>
+					<div class="wechat">
+						<img src="images/public/fot_wx.png">
+						<br>
+						官方微信
+					</div>
+				</div>
+				<h3 class="layui-row">Copyright ©2014-2020 江苏三零面粉有限公司.All rights reserved
+					经营许可证：苏B2-20180235苏ICP备10077873号
+				</h3>
+			</div>
 		</div>
 	</div>
 

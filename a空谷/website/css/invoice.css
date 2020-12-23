@@ -1,0 +1,52 @@
+.invoice-table {
+  overflow: hidden;
+}
+
+.invoice-table th,
+.invoice-table td {
+  text-align: center;
+  font-size: 16px;
+}
+
+.invoice-table tr {
+  line-height: 58px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.invoice-table a {
+  display: block;
+  width: 138px;
+  line-height: 38px;
+  border: 1px solid #e0464c;
+  border-radius: 20px;
+  margin: auto;
+  color: #e0464c;
+}
+.invoice-table a:hover {
+  color: #e0464c;
+}
+.invoice-tips {
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.11);
+  border-radius: 1px;
+  position: absolute;
+  top: 64px;
+  left: 24px;
+  padding: 0 30px 0 30px;
+  height: 30px;
+  line-height: 30px;
+  background: url(../images/pages/lamp.png) no-repeat 15px center;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.invoice-tips:before {
+  width: 0;
+  height: 0;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  position: absolute;
+  content: "";
+  left: 20px;
+  top: -11px;
+}

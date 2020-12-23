@@ -4,11 +4,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>账户首页</title>
+	<title>电子发票</title>
 	<link rel="stylesheet" type="text/css" href="css/public.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/pages.css">
 	<link rel="stylesheet" type="text/css" href="css/shop.css">
+	<link rel="stylesheet" type="text/css" href="css/invoice.css">
 	<link rel="stylesheet" type="text/css" href="js/css/font-awesome.css">
 
 	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
@@ -35,7 +36,7 @@
 					<a href="javascript:;">联系我们</a>
 				</div>
 				<div class="layui-col-xs4 naviga_buy">
-					<div class="buys"><a href="javascript:">购物车（0）</a></div>
+					<div class="buys"><a href="./shopping-cart.html">购物车（0）</a></div>
 					<div class="logins">
 						<a href="javascript:">登录</a> | <a href="javascript:">注册</a>
 					</div>
@@ -122,11 +123,11 @@
 			<div class="menu">
 				<ul>
 					<li class="on_this"><a href="javascript:;">商城首页</a></li>
-					<li><a href="javascript:;">企业购</a></li>
-					<li><a href="javascript:;">热卖推荐</a></li>
-					<li><a href="javascript:;">限时特惠</a></li>
-					<li><a href="javascript:;">新品加推</a></li>
-					<li><a href="javascript:;">客户服务</a></li>
+					<li><a href="./business-shopping.html">企业购</a></li>
+					<li><a href="./hot-sale.html">热卖推荐</a></li>
+					<li><a href="./seckill.html">限时特惠</a></li>
+					<li><a href="./new-product.html">新品加推</a></li>
+					<li><a href="./customer-service.html">客户服务</a></li>
 				</ul>
 			</div>
 		</div>
@@ -136,30 +137,30 @@
 			<div class="service_box layui-row">
 				<div class="servi_lf">
 					<dl class="member">
-						<dt><span class="cus01">账户首页</span></dt>
+						<dt><span class="cus01"><a href="./account.html">账户首页</a></span></dt>
 						<dd>
 							<ul class="setup">
 								<li>
 									<a class="acco_a set01" href="javascript:;"><span>账户设置</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a class="on_this" href="javascript:;">账户信息</a>
-										<a href="javascript:;">地址管理</a>
+										<a href="./account-info.html">账户信息</a>
+										<a href="./address.html">地址管理</a>
 									</div>
 								</li>
 								<li>
 									<a class="acco_a set02" href="javascript:;"><span>订单中心</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="javascript:;">我的订单</a>
-										<a href="javascript:;">电子发票</a>
+										<a href="./my-order.html">我的订单</a>
+										<a class="on_this" href="javascript:;">电子发票</a>
 									</div>
 								</li>
 								<li>
 									<a class="acco_a set03" href="javascript:;"><span>我的卡包</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="javascript:;">优惠券</a>
+										<a href="./coupon.html">优惠券</a>
 									</div>
 								</li>
 							</ul>
@@ -167,82 +168,70 @@
 						</dd>
 					</dl>
 				</div>
-				<div class="servi_cont layui-row">
-					<div class="modify_tit layui-row"><span>账户信息</span></div>
-					<div class="modify_cont layui-row">
-						<form class="layui-form credit" action="">
-							<div class="hed_img">
-								<a href="javascript:;">修改头像</a>
-								<img src="images/memer/portrait.png">
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">姓名：</label>
-								<div class="layui-input-block">
-									<select name="city" lay-verify="required">
-										<option value="">房中岩</option>
-										<option value="0">房中岩1</option>
-									</select>
-								</div>
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">性别：</label>
-								<div class="layui-input-block">
-									<input type="radio" name="sex" value="男" title="男" checked>
-									<input type="radio" name="sex" value="女" title="女">
-								</div>
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">生日：</label>
-								<div class="layui-input-block">
-									<input type="text" name="title" required lay-verify="required"
-										placeholder="1996-09-18" autocomplete="off" class="layui-input">
-								</div>
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">所在地区：</label>
-								<div class="layui-input-block">
-									<input type="text" name="title" required lay-verify="required" placeholder="江苏苏州"
-										value="江苏苏州" autocomplete="off" class="layui-input">
-								</div>
-							</div>
-							<div class="layui-form-item">
-								<div class="layui-input-block">
-									<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="modify_tit layui-row marginTs10"><span>账户信息</span></div>
-					<div class="modify_cont layui-row">
-						<div class="binding">
-							<p class="bing01"><span>登录密码</span><br>用于保护账号信息和登录安全</p>
-							<a href="javascript:;" class="mend_btn pc_btn">修改</a>
-						</div>
-						<div class="binding">
-							<p class="bing02"><span>登录密码</span><br>用于保护账号信息和登录安全</p>
-							<a href="javascript:;" class="mend_btn pc_btn">修改</a>
-						</div>
-					</div>
-					<div class="modify_tit layui-row marginTs10"><span>账户关联</span></div>
-					<div class="modify_cont layui-row">
-						<div class="relatingt">
-							<p class="rela01">
-								<span>绑定QQ账号</span>
-								<a href="javascript:;" class="pc_btn">立即绑定</a>
-							</p>
-						</div>
-						<div class="relatingt">
-							<p class="rela02">
-								<span>绑定微信账号</span>
-								<a href="javascript:;" class="alread pc_btn">立即绑定</a>
-							</p>
+				<div class="servi_cont layui-row" style="position: relative;">
+					<div class="modify_tit layui-row"><span>电子发票</span></div>
+					<div class="invoice-tips">下单时选择不开发票及已退货的订单均不显示电子发票</div>
+					<div class="modify_cont layui-row" style="margin-top: 40px;">
+						<table class="invoice-table">
+							<colgroup>
+								<col width="240">
+								<col width="300">
+								<col width="280">
+								<col width="130">
+								<col width="130">
+								<col width="200">
+							</colgroup>
+							<thead>
+								<tr>
+									<th>开票时间</th>
+									<th>发票抬头</th>
+									<th>开票方</th>
+									<th>开票金额</th>
+									<th>状态</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>2020-11-07 15:35:15</td>
+									<td>苏州礼来我往电子商务有限公司</td>
+									<td>苏州空谷网络科技有限公司</td>
+									<td>5000</td>
+									<td>已开具</td>
+									<td><a class="sendInvoiceBtn" href="javascript:;">发送电子发票</a></td>
+								</tr>
+								<tr>
+									<td>2020-11-07 15:35:15</td>
+									<td>苏州礼来我往电子商务有限公司</td>
+									<td>苏州空谷网络科技有限公司</td>
+									<td>5000</td>
+									<td>已开具</td>
+									<td><a class="sendInvoiceBtn" href="javascript:;">发送电子发票</a></td>
+								</tr>
+								<tr>
+									<td>2020-11-07 15:35:15</td>
+									<td>苏州礼来我往电子商务有限公司</td>
+									<td>苏州空谷网络科技有限公司</td>
+									<td>5000</td>
+									<td>已开具</td>
+									<td><a class="sendInvoiceBtn" href="javascript:;">发送电子发票</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="rurnover layui-row">
+							<a href="javascript:;" class="runs"><i class="layui-icon layui-icon-left"></i></a>
+							<a href="javascript:;" class="on_over">1</a>
+							<a href="javascript:;">2</a>
+							<a href="javascript:;">3</a>
+							<a href="javascript:;">4</a>
+							<a href="javascript:;">5</a>
+							<a href="javascript:;" class="runs"><i class="layui-icon layui-icon-right"></i></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="footer-wrap">
 		<div class="footer layui-row">
 			<div class="layui-col-xs5 company">
@@ -285,12 +274,46 @@
 	</div>
 
 	<div class="topping"><i><img src="images/public/icon02.png"></i></div>
+	<div class="layui-layer-shade" id="layui-layer-shade8" times="8"
+		style="z-index: 19891021; background-color: rgb(0, 0, 0); opacity: 0.3; display: none;"></div>
+	<div class="layui-layer layui-layer-dialog tipsing" id="layui-layer8" type="dialog" times="8" showtime="0"
+		contype="string"
+		style="z-index: 19891022; width: 580px; height: 240px; top: 511.5px; left: 50%; margin-left: -290px; display: none;">
+		<div class="layui-layer-title" style="cursor: move;">发送电子发票</div>
+		<div class="layui-layer-content" style="padding-top: 40px;">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 100px;">邮箱：</label>
+				<div>
+					<input type="text" name="title" required lay-verify="required" placeholder="请输入电子邮箱" value=""
+						autocomplete="off" class="layui-input" style="width: 360px;">
+				</div>
+			</div>
+		</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1"
+				href="javascript:;"></a></span>
+		<div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">发送</a></div><span
+			class="layui-layer-resize"></span>
+	</div>
 </body>
 
 </html>
 
-
 <script type="text/javascript">
+	var dialog = document.querySelector(".layui-layer-dialog");
+	var shade = document.querySelector(".layui-layer-shade");
+	var closeBtn = document.querySelector(".layui-layer-setwin");
+	var sendInvoiceBtn = document.querySelectorAll(".sendInvoiceBtn")
+
+	closeBtn.addEventListener("click", function () {
+		dialog.style.display = "none";
+		shade.style.display = "none";
+	})
+	for (var i = 0; i < sendInvoiceBtn.length; i++) {
+		sendInvoiceBtn[i].addEventListener("click", function () {
+			dialog.style.display = "block";
+			shade.style.display = "block";
+		})
+	}
+
 	$(function () {
 		var is = true;
 		$(".setup li .acco_a").click(function () {
@@ -302,9 +325,6 @@
 				$(this).next("div").show();
 				$(this).find("i").removeClass("layui-icon layui-icon-right").addClass("layui-icon layui-icon-down");
 			}
-
-
 		})
-
 	})
 </script>

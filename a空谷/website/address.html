@@ -18,6 +18,12 @@
 
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<style>
+		.collect li {
+			width: 510px;
+			float: left;
+		}
+	</style>
 </head>
 
 <body>
@@ -35,7 +41,7 @@
 					<a href="javascript:;">联系我们</a>
 				</div>
 				<div class="layui-col-xs4 naviga_buy">
-					<div class="buys"><a href="javascript:">购物车（0）</a></div>
+					<div class="buys"><a href="./shopping-cart.html">购物车（0）</a></div>
 					<div class="logins">
 						<a href="javascript:">登录</a> | <a href="javascript:">注册</a>
 					</div>
@@ -122,11 +128,11 @@
 			<div class="menu">
 				<ul>
 					<li class="on_this"><a href="javascript:;">商城首页</a></li>
-					<li><a href="javascript:;">企业购</a></li>
-					<li><a href="javascript:;">热卖推荐</a></li>
-					<li><a href="javascript:;">限时特惠</a></li>
-					<li><a href="javascript:;">新品加推</a></li>
-					<li><a href="javascript:;">客户服务</a></li>
+					<li><a href="./business-shopping.html">企业购</a></li>
+					<li><a href="./hot-sale.html">热卖推荐</a></li>
+					<li><a href="./seckill.html">限时特惠</a></li>
+					<li><a href="./new-product.html">新品加推</a></li>
+					<li><a href="./customer-service.html">客户服务</a></li>
 				</ul>
 			</div>
 		</div>
@@ -151,15 +157,15 @@
 									<a class="acco_a set02" href="javascript:;"><span>订单中心</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="javascript:;">我的订单</a>
-										<a href="javascript:;">电子发票</a>
+										<a href="./my-order.html">我的订单</a>
+										<a href="./invoice.html">电子发票</a>
 									</div>
 								</li>
 								<li>
 									<a class="acco_a set03" href="javascript:;"><span>我的卡包</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="javascript:;">优惠券</a>
+										<a href="./coupon.html">优惠券</a>
 									</div>
 								</li>
 							</ul>
@@ -169,26 +175,37 @@
 				</div>
 				<div class="servi_cont layui-row">
 					<div class="modify_tit layui-row"><span>地址管理</span></div>
-					<div class="modify_cont layui-row">
-						<form class="layui-form credit" action="">
-							<div class="layui-form-item">
-								<label class="layui-form-label">充值账户：</label>
-								<span class="layui-form-label" style="text-align: left;">刘正超</span>
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">充值金额：</label>
-								<div class="layui-input-block">
-									<input type="text" name="title" required lay-verify="required" placeholder=""
-										style="width: 100px; display: inline-block;" value="" autocomplete="off"
-										class="layui-input"> 元
+					<div class="recei_cont">
+						<ul class="collect layui-row">
+							<li>
+								<div class="collec_box">
+									<div class="coll_border">
+										<h2><span>刘正超</span><a href="javascript:;" class="dele"></a><a
+												href="javascript:;" class="write"></a></h2>
+										<p><span>15806293785</span><em>江苏省苏州市姑苏区<br>
+												苏州市虎丘区银珠路28号11栋厂房</em></p>
+									</div>
 								</div>
-							</div>
-							<div class="layui-form-item">
-								<div class="layui-input-block">
-									<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+							</li>
+							<li>
+								<div class="collec_box">
+									<div class="coll_border">
+										<h2><span>刘正超</span><a href="javascript:;" class="dele"></a><a
+												href="javascript:;" class="write"></a></h2>
+										<p><span>15806293785</span><em>江苏省苏州市姑苏区<br>
+												苏州市虎丘区银珠路28号11栋厂房</em></p>
+									</div>
 								</div>
-							</div>
-						</form>
+							</li>
+							<li>
+								<div class="increa_box">
+									<a href="javascript:;">
+										<i></i>
+										<p>新增收货人信息</p>
+									</a>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>

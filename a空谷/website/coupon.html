@@ -4,11 +4,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>账户信息</title>
+	<title>优惠券</title>
 	<link rel="stylesheet" type="text/css" href="css/public.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/pages.css">
 	<link rel="stylesheet" type="text/css" href="css/shop.css">
+	<link rel="stylesheet" type="text/css" href="css/invoice.css">
 	<link rel="stylesheet" type="text/css" href="js/css/font-awesome.css">
 
 	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
@@ -18,6 +19,11 @@
 
 	<link rel="stylesheet" type="text/css" href="css/swiper.min.css">
 	<script type="text/javascript" src="js/swiper.min.js"></script>
+	<style>
+		.secr_txt h3 {
+			padding: 80px 37px 30px;
+		}
+	</style>
 </head>
 
 <body>
@@ -143,7 +149,7 @@
 									<a class="acco_a set01" href="javascript:;"><span>账户设置</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a class="on_this" href="javascript:;">账户信息</a>
+										<a href="./account-info.html">账户信息</a>
 										<a href="./address.html">地址管理</a>
 									</div>
 								</li>
@@ -159,7 +165,7 @@
 									<a class="acco_a set03" href="javascript:;"><span>我的卡包</span><i
 											class="layui-icon layui-icon-down"></i></a>
 									<div>
-										<a href="./coupon.html">优惠券</a>
+										<a class="on_this" href="javascript:;">优惠券</a>
 									</div>
 								</li>
 							</ul>
@@ -167,82 +173,55 @@
 						</dd>
 					</dl>
 				</div>
-				<div class="servi_cont layui-row">
-					<div class="modify_tit layui-row"><span>账户信息</span></div>
+				<div class="servi_cont layui-row" style="position: relative;">
+					<div class="modify_tit layui-row"><span>优惠券</span></div>
 					<div class="modify_cont layui-row">
-						<form class="layui-form credit" action="">
-							<div class="hed_img">
-								<a href="javascript:;">修改头像</a>
-								<img src="images/memer/portrait.png">
-							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">姓名：</label>
-								<div class="layui-input-block">
-									<select name="city" lay-verify="required">
-										<option value="">房中岩</option>
-										<option value="0">房中岩1</option>
-									</select>
+						<div class="secur_box layui-row">
+							<div class="layui-col-xs4 secur_list">
+								<div class="secur_cont">
+									<div class="secr_txt">
+										<h2><span><em>￥</em>15</span>
+											<p>满100元可用</p>
+										</h2>
+										<h3>产品券<p>使用期限：2020.11.06-2020.11.15</p>
+										</h3>
+									</div>
+									<div class="secr_p">还有九天过期</div>
 								</div>
+								<a href="javascript:;" class="secur_btn">立即使用</a>
 							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">性别：</label>
-								<div class="layui-input-block">
-									<input type="radio" name="sex" value="男" title="男" checked>
-									<input type="radio" name="sex" value="女" title="女">
+							<div class="layui-col-xs4 secur_list">
+								<div class="secur_cont">
+									<div class="secr_txt">
+										<h2><span><em>￥</em>15</span>
+											<p>满100元可用</p>
+										</h2>
+										<h3>产品券<p>使用期限：2020.11.06-2020.11.15</p>
+										</h3>
+									</div>
+									<div class="secr_p">还有九天过期</div>
 								</div>
+								<a href="javascript:;" class="secur_btn">立即使用</a>
 							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">生日：</label>
-								<div class="layui-input-block">
-									<input type="text" name="title" required lay-verify="required"
-										placeholder="1996-09-18" autocomplete="off" class="layui-input">
+							<div class="layui-col-xs4 secur_list">
+								<div class="secur_cont">
+									<div class="secr_txt">
+										<h2><span><em>￥</em>15</span>
+											<p>满100元可用</p>
+										</h2>
+										<h3>产品券<p>使用期限：2020.11.06-2020.11.15</p>
+										</h3>
+									</div>
+									<div class="secr_p">还有九天过期</div>
 								</div>
+								<a href="javascript:;" class="secur_btn">立即使用</a>
 							</div>
-							<div class="layui-form-item">
-								<label class="layui-form-label">所在地区：</label>
-								<div class="layui-input-block">
-									<input type="text" name="title" required lay-verify="required" placeholder="江苏苏州"
-										value="江苏苏州" autocomplete="off" class="layui-input">
-								</div>
-							</div>
-							<div class="layui-form-item">
-								<div class="layui-input-block">
-									<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="modify_tit layui-row marginTs10"><span>账户信息</span></div>
-					<div class="modify_cont layui-row">
-						<div class="binding">
-							<p class="bing01"><span>登录密码</span><br>用于保护账号信息和登录安全</p>
-							<a href="javascript:;" class="mend_btn pc_btn">修改</a>
-						</div>
-						<div class="binding">
-							<p class="bing02"><span>登录密码</span><br>用于保护账号信息和登录安全</p>
-							<a href="javascript:;" class="mend_btn pc_btn">修改</a>
-						</div>
-					</div>
-					<div class="modify_tit layui-row marginTs10"><span>账户关联</span></div>
-					<div class="modify_cont layui-row">
-						<div class="relatingt">
-							<p class="rela01">
-								<span>绑定QQ账号</span>
-								<a href="javascript:;" class="pc_btn">立即绑定</a>
-							</p>
-						</div>
-						<div class="relatingt">
-							<p class="rela02">
-								<span>绑定微信账号</span>
-								<a href="javascript:;" class="alread pc_btn">立即绑定</a>
-							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="footer-wrap">
 		<div class="footer layui-row">
 			<div class="layui-col-xs5 company">
@@ -285,10 +264,10 @@
 	</div>
 
 	<div class="topping"><i><img src="images/public/icon02.png"></i></div>
+
 </body>
 
 </html>
-
 
 <script type="text/javascript">
 	$(function () {
@@ -302,9 +281,6 @@
 				$(this).next("div").show();
 				$(this).find("i").removeClass("layui-icon layui-icon-right").addClass("layui-icon layui-icon-down");
 			}
-
-
 		})
-
 	})
 </script>
