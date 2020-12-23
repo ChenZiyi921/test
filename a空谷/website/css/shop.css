@@ -1065,6 +1065,9 @@
   color: #de2f36;
   font-size: 16px;
 }
+.locas:hover {
+  color: #de2f36;
+}
 .modi_lf p {
   color: #6b6b6b;
   font-size: 14px;
@@ -1103,7 +1106,7 @@
   font-size: 16px;
 }
 .rvation:hover {
-  color: #de2f36;
+  color: #fff;
 }
 .modi_fr {
   padding-left: 100px;

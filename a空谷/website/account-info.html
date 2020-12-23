@@ -121,7 +121,7 @@
 			</div>
 			<div class="menu">
 				<ul>
-					<li class="on_this"><a href="javascript:;">商城首页</a></li>
+					<li class="on_this"><a href="./index.html">商城首页</a></li>
 					<li><a href="./business-shopping.html">企业购</a></li>
 					<li><a href="./hot-sale.html">热卖推荐</a></li>
 					<li><a href="./seckill.html">限时特惠</a></li>
@@ -172,7 +172,7 @@
 					<div class="modify_cont layui-row">
 						<form class="layui-form credit" action="">
 							<div class="hed_img">
-								<a href="javascript:;">修改头像</a>
+								<a href="./change-head.html">修改头像</a>
 								<img src="images/memer/portrait.png">
 							</div>
 							<div class="layui-form-item">
@@ -216,11 +216,11 @@
 					<div class="modify_cont layui-row">
 						<div class="binding">
 							<p class="bing01"><span>登录密码</span><br>用于保护账号信息和登录安全</p>
-							<a href="javascript:;" class="mend_btn pc_btn">修改</a>
+							<a href="javascript:;" class="mend_btn pc_btn" id="resetPwd">修改</a>
 						</div>
 						<div class="binding">
-							<p class="bing02"><span>登录密码</span><br>用于保护账号信息和登录安全</p>
-							<a href="javascript:;" class="mend_btn pc_btn">修改</a>
+							<p class="bing02"><span>绑定手机</span><br>您绑定的手机：186****9448若以丢失或停用，请立即更换</p>
+							<a href="javascript:;" class="mend_btn pc_btn" id="resetPhone">修改</a>
 						</div>
 					</div>
 					<div class="modify_tit layui-row marginTs10"><span>账户关联</span></div>
@@ -285,12 +285,135 @@
 	</div>
 
 	<div class="topping"><i><img src="images/public/icon02.png"></i></div>
+	<div class="layui-layer-shade" id="layui-layer-shade8" times="8"
+		style="z-index: 19891021; background-color: rgb(0, 0, 0); opacity: 0.3; display: none;"></div>
+	<div class="layui-layer layui-layer-dialog tipsing" id="layui-layer8" type="dialog" times="8" showtime="0"
+		contype="string"
+		style="z-index: 19891022; width: 580px; height: 330px; top: 511.5px; left: 50%; margin-left: -290px; display: none;">
+		<div class="layui-layer-title" style="cursor: move;">绑定手机</div>
+		<div class="layui-layer-content" style="padding-top: 40px;">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 120px;">新手机号码：</label>
+				<div>
+					<input type="text" name="title" required lay-verify="required" placeholder="" value="15806293785"
+						autocomplete="off" class="layui-input" style="width: 360px;">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 120px;">验证码：</label>
+				<div style="position: relative;">
+					<input type="text" name="title" required lay-verify="required" placeholder="" value=""
+						autocomplete="off" class="layui-input" style="width: 360px;">
+					<span class="sendCheckCode">发送验证码</span>
+					<span
+						style="font-size: 12px; text-align: right; display: block; padding: 4px 30px 0 0; color: #999;">短信验证码已发送至158****3785，请注意查收</span>
+				</div>
+			</div>
+		</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1"
+				href="javascript:;"></a></span>
+		<div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">提交</a><a
+				class="layui-layer-btn1">取消</a></div><span class="layui-layer-resize"></span>
+	</div>
+	<div class="layui-layer layui-layer-dialog2 tipsing" id="layui-layer8" type="dialog" times="8" showtime="0"
+		contype="string"
+		style="z-index: 19891022; width: 580px; height: 330px; top: 511.5px; left: 50%; margin-left: -290px; display: none;">
+		<div class="layui-layer-title" style="cursor: move;">修改登录密码</div>
+		<div class="layui-layer-content" style="padding-top: 40px;">
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 120px;">原密码：</label>
+				<div>
+					<input type="password" name="title" required lay-verify="required" placeholder="" value=""
+						autocomplete="off" class="layui-input" style="width: 360px;">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 120px;">新密码：</label>
+				<div>
+					<input type="password" name="title" required lay-verify="required" placeholder="" value=""
+						autocomplete="off" class="layui-input" style="width: 360px;">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label" style="width: 120px;">确认新密码：</label>
+				<div>
+					<input type="password" name="title" required lay-verify="required" placeholder="" value=""
+						autocomplete="off" class="layui-input" style="width: 360px;">
+				</div>
+			</div>
+		</div><span class="layui-layer-setwin"><a class="layui-layer-ico layui-layer-close layui-layer-close1"
+				href="javascript:;"></a></span>
+		<div class="layui-layer-btn layui-layer-btn-"><a class="layui-layer-btn0">提交</a><a
+				class="layui-layer-btn1">取消</a></div><span class="layui-layer-resize"></span>
+	</div>
 </body>
 
 </html>
-
+<style>
+	.sendCheckCode {
+		position: absolute;
+		top: 8px;
+		right: 40px;
+		cursor: pointer;
+		color: #cd1120;
+	}
+</style>
 
 <script type="text/javascript">
+	var dialog = document.querySelector(".layui-layer-dialog");
+	var dialog2 = document.querySelector(".layui-layer-dialog2");
+	var shade = document.querySelector(".layui-layer-shade");
+	var closeBtn = document.querySelectorAll(".layui-layer-setwin");
+	var cancelBtn = document.querySelectorAll(".layui-layer-btn1")
+	var resetPhone = document.querySelector("#resetPhone")
+	var resetPwd = document.querySelector("#resetPwd")
+
+	for (var i = 0; i < closeBtn.length; i++) {
+		closeBtn[i].addEventListener("click", function () {
+			dialog.style.display = "none";
+			dialog2.style.display = "none";
+			shade.style.display = "none";
+		})
+	}
+	for (var j = 0; j < cancelBtn.length; j++) {
+		cancelBtn[j].addEventListener("click", function () {
+			dialog.style.display = "none";
+			dialog2.style.display = "none";
+			shade.style.display = "none";
+		})
+	}
+	resetPhone.addEventListener("click", function () {
+		dialog.style.display = "block";
+		shade.style.display = "block";
+	})
+
+	resetPwd.addEventListener("click", function () {
+		dialog2.style.display = "block";
+		shade.style.display = "block";
+	})
+
+	var countdown = 60;
+	function settime(obj) {
+		if (countdown == 0) {
+			obj.removeAttribute("disabled");
+			obj.innerHTML = "免费获取验证码";
+			countdown = 60;
+			return;
+		} else {
+			obj.setAttribute("disabled", true);
+			obj.innerHTML = countdown + "s后重新发送";
+			countdown--;
+		}
+		setTimeout(function () {
+			settime(obj)
+		}, 1000)
+	}
+	var sendCheckCode = document.querySelector(".sendCheckCode")
+	sendCheckCode.addEventListener("click", function () {
+		if (!this.getAttribute("disabled")) {
+			settime(this)
+		}
+	})
+
 	$(function () {
 		var is = true;
 		$(".setup li .acco_a").click(function () {
