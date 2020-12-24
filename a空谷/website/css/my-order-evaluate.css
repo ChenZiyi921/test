@@ -1,0 +1,63 @@
+.evaluate-wrap {
+  padding: 30px;
+}
+
+.evaluate-item {
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+
+.evaluate-item-label {
+  float: left;
+  width: 140px;
+}
+
+.evaluate-item-content {
+  float: left;
+  margin-right: 40px;
+  width: 220px;
+}
+
+.evaluate-item-content span {
+  float: left;
+  padding-right: 16px;
+}
+
+.evaluate-list li {
+  float: left;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.evaluate-content {
+  width: 770px;
+  max-width: 770px;
+  height: 150px;
+  min-height: 100px;
+  border: 1px solid #e5e5e5;
+  padding: 14px;
+  box-sizing: border-box;
+}
+.submit-evaluate {
+  display: block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background: #de2f36;
+  margin-left: 140px;
+}
+.evaluate-upload {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #d1d1d1;
+  background: url("../images/public/i-upload.png") no-repeat center 30px;
+  margin-left: 140px;
+}
+.evaluate-upload input {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
