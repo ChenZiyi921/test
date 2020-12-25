@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="js/css/font-awesome.css">
 
 	<link rel="stylesheet" type="text/css" href="js/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="css/address.css">
 	<script type="text/javascript" src="js/layui.js"></script>
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/int-public.js"></script>
@@ -180,8 +181,8 @@
 							<li>
 								<div class="collec_box">
 									<div class="coll_border">
-										<h2><span>刘正超</span><a href="javascript:;" class="dele"></a><a
-												href="javascript:;" class="write"></a></h2>
+										<h2><span>刘正超</span><span class="default">默认地址</span><a href="javascript:;"
+												class="dele"></a><a href="javascript:;" class="write"></a></h2>
 										<p><span>15806293785</span><em>江苏省苏州市姑苏区<br>
 												苏州市虎丘区银珠路28号11栋厂房</em></p>
 									</div>
@@ -190,8 +191,9 @@
 							<li>
 								<div class="collec_box">
 									<div class="coll_border">
-										<h2><span>刘正超</span><a href="javascript:;" class="dele"></a><a
-												href="javascript:;" class="write"></a></h2>
+										<h2><span>刘正超</span><span class="default-set">设为默认地址</span><a
+												href="javascript:;" class="dele"></a><a href="javascript:;"
+												class="write"></a></h2>
 										<p><span>15806293785</span><em>江苏省苏州市姑苏区<br>
 												苏州市虎丘区银珠路28号11栋厂房</em></p>
 									</div>
@@ -253,12 +255,88 @@
 	</div>
 
 	<div class="topping"><i><img src="images/public/icon02.png"></i></div>
+	<div class="mask"></div>
+	<div class="create-address">
+		<div class="create-address-title">新增收货地址</div>
+		<a class="create-address-close" href="javascript:;">×</a>
+
+		<form class="layui-form" action="javascript:jg()" method="post"
+			style="margin:20px auto; padding-left: 80px; box-sizing: border-box;">
+			<div class="layui-form-item">
+				<label class="layui-form-label layui-required">收货人：</label>
+				<div class="layui-input-block">
+					<input type="text" name="title" required lay-verify="required" placeholder=""
+						style="width: 387px; display: inline-block;" value="" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label layui-required">手机号码：</label>
+				<div class="layui-input-block">
+					<input type="text" name="title" required lay-verify="required" placeholder=""
+						style="width: 387px; display: inline-block;" value="" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label layui-required">所在地区：</label>
+				<div class="layui-inline">
+					<select name="province" id="province" lay-verify="required" lay-search lay-filter="province">
+						<option value="">中国</option>
+					</select>
+				</div>
+				<div class="layui-inline">
+					<select name="city" id="city" lay-verify="required" lay-search lay-filter="city">
+						<option value="">请选择</option>
+					</select>
+				</div>
+				<div class="layui-inline">
+					<select name="district" id="district" lay-verify="required" lay-search>
+						<option value="">请选择</option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label layui-required">详细地址：</label>
+				<div class="layui-input-block">
+					<input type="text" name="title" required lay-verify="required" placeholder=""
+						style="width: 387px; display: inline-block;" value="" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label"></label>
+				<div class="layui-input-inline">
+					<button type="submit" class="layui-btn save-btn">保存</button>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<style>
+
+	</style>
+
+	<script src="js/area.js" type="text/javascript"></script>
+	<script src="js/select.js" type="text/javascript"></script>
 </body>
 
 </html>
 
 
 <script type="text/javascript">
+	var createAddressClose = document.querySelector(".create-address-close");
+	var createAddress = document.querySelector(".create-address");
+	var mask = document.querySelector(".mask");
+	var increaBox = document.querySelector(".increa_box");
+
+	createAddressClose.addEventListener("click", function () {
+		mask.style.display = "none";
+		createAddress.style.display = "none";
+	})
+
+	increaBox.addEventListener("click", function () {
+		mask.style.display = "block";
+		createAddress.style.display = "block";
+	})
+
 	$(function () {
 		var is = true;
 		$(".setup li .acco_a").click(function () {
@@ -270,9 +348,6 @@
 				$(this).next("div").show();
 				$(this).find("i").removeClass("layui-icon layui-icon-right").addClass("layui-icon layui-icon-down");
 			}
-
-
 		})
-
 	})
 </script>

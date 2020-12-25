@@ -484,7 +484,7 @@
   float: right;
   width: 20px;
   height: 20px;
-  margin: 0 5px;
+  margin: 4px 5px 0;
 }
 .collec_box h2 a.write {
   background: url(../images/pages/hok01.png) no-repeat center center;
