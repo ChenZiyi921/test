@@ -116,3 +116,20 @@ strong {
   background: #fff;
   margin-top: 20px;
 }
+.order-type-tab {
+  display: inline-block;
+  margin-left: 100px;
+  overflow: hidden;
+}
+
+.order-type-tab li {
+  float: left;
+  margin: 0 20px;
+  cursor: pointer;
+  color: #777;
+}
+
+.order-type-tab li.cur {
+  color: #de2f36;
+  border-bottom: 1px solid #de2f36;
+}
