@@ -441,3 +441,19 @@ button {
   width: 1600px;
   margin: auto;
 }
+
+@media screen and (max-width: 1366px) {
+  body {
+    zoom: 74%;
+  }
+}
+@media (min-width: 1367px) and (max-width: 1440px) {
+  body {
+    zoom: 80%;
+  }
+}
+@media (min-width: 1441px) and (max-width: 1680px) {
+  body {
+    zoom: 90%;
+  }
+}

@@ -1,3 +1,11 @@
+function browserInfo() {
+	return {
+		isPhone: Boolean(/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent))
+	}
+}
+if (browserInfo().isPhone) {
+	window.location.href = "https://www.baidu.com/";
+}
 
 layui.use(['element', 'form', 'carousel', 'layer', 'laydate', 'util', 'upload'], function () {
 	var $ = layui.jquery,
@@ -73,6 +81,3 @@ $(function () {
 
 	})
 })
-
-
-
