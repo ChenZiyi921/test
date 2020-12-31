@@ -64,9 +64,6 @@ button {
   float: left;
 }
 
-body {
-  overflow-x: hidden;
-}
 .wrapper {
   width: 1600px;
   margin: 0 auto;

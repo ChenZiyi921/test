@@ -481,6 +481,18 @@
 	})
 </script>
 <script language="javascript">
+	var subsBtn = document.querySelector(".subs")
+	var num = document.querySelector(".numchange")
+	var plusBtn = document.querySelector(".plus")
+	subsBtn.addEventListener("click", function () {
+		if (Number(num.value) > 0) {
+			num.value = Number(num.value) - 1
+		}
+	})
+	plusBtn.addEventListener("click", function () {
+		num.value = Number(num.value) + 1
+	})
+
 	var galleryThumbs = new Swiper('.proper_thum', {
 		spaceBetween: 15,
 		slidesPerView: 5,
