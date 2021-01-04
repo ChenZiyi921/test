@@ -299,6 +299,24 @@
 
 
 <script type="text/javascript">
+	var evaluateList = document.querySelectorAll(".evaluate-list");
+	for (var i = 0; i < evaluateList.length; i++) {
+		var evaluateLevel = evaluateList[i].querySelectorAll("img");
+		evaluateList[i].index = i;
+		evaluateList[i].setAttribute("index", i)
+		for (var j = 0; j < evaluateLevel.length; j++) {
+			evaluateLevel[j].index = j;
+			evaluateLevel[j].addEventListener("click", function () {
+				for (var k = 0; k < evaluateLevel.length; k++) {
+					evaluateList[this.parentNode.parentNode.getAttribute("index")].querySelectorAll("img")[k].src = "./images/public/i-eval.png";
+				}
+				for (var l = 0; l <= this.index; l++) {
+					evaluateList[this.parentNode.parentNode.getAttribute("index")].querySelectorAll("img")[l].src = "./images/public/i-evaled.png";
+				}
+			})
+		}
+	}
+
 	$(function () {
 		var is = true;
 		$(".setup li .acco_a").click(function () {
@@ -310,8 +328,6 @@
 				$(this).next("div").show();
 				$(this).find("i").removeClass("layui-icon layui-icon-right").addClass("layui-icon layui-icon-down");
 			}
-
-
 		})
 
 	})
